@@ -1,0 +1,11 @@
+{
+  "_comment": "Formato de génesis del devnet v3 — ver docs/ARCHITECTURE.md y docs/CONSENSUS.md. Sigue sin premine (a diferencia del mainnet real, que sí va a llevar uno — ver CONSENSUS.md): `premine` queda sin declarar (default: lista vacía), el supply nace gradualmente por minería desde el bloque 1, cualquiera mina. `subsidy_schedule` de un solo elemento reproduce el halving puro simple: converge a ~100.000.000 ZNX = 2 * subsidy_schedule[0] * subsidy_period_blocks = 2 * 50 * 1.000.000 (mismo floor-por-halving que Bitcoin, no llega exactamente al cap teórico, es esperado). Los montos van como STRING (no number): un u128 a 18 decimales excede el rango seguro de JSON/JS. initial_target/target_block_time_secs son valores de devnet (dificultad muy baja, iteración rápida) — nada que ver con los de mainnet real (Fase 5, ver CONSENSUS.md para los ya decididos).",
+  "chain_id": "znx-devnet-1",
+  "genesis_time": "2026-07-21T00:00:00Z",
+  "decimals": 18,
+  "subsidy_schedule": ["50000000000000000000"],
+  "subsidy_period_blocks": 1000000,
+  "target_block_time_secs": 15,
+  "difficulty_adjustment_interval_blocks": 60,
+  "initial_target": "0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+}

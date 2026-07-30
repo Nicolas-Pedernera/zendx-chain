@@ -1,0 +1,19 @@
+[package]
+name = "znx-storage"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+rocksdb = { version = "0.24.0", default-features = false, features = ["bindgen-runtime"] }
+thiserror = "2.0.19"
+znx-codec = { version = "0.1.0", path = "../znx-codec" }
+znx-crypto = { version = "0.1.0", path = "../znx-crypto" }
+znx-state = { version = "0.1.0", path = "../znx-state" }
+znx-types = { version = "0.1.0", path = "../znx-types" }
+
+[dev-dependencies]
+tempfile = "3.27.0"

@@ -1,0 +1,15 @@
+[package]
+name = "znx-mempool"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+thiserror = "2.0.19"
+znx-codec = { version = "0.1.0", path = "../znx-codec" }
+znx-crypto = { version = "0.1.0", path = "../znx-crypto" }
+znx-state = { version = "0.1.0", path = "../znx-state" }
+znx-types = { version = "0.1.0", path = "../znx-types" }

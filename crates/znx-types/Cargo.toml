@@ -1,0 +1,12 @@
+[package]
+name = "znx-types"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+borsh = { version = "1.8.0", features = ["derive"] }
+znx-crypto = { version = "0.1.0", path = "../znx-crypto" }

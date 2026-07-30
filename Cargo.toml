@@ -1,0 +1,27 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/znx-crypto",
+    "crates/znx-types",
+    "crates/znx-codec",
+    "crates/znx-storage",
+    "crates/znx-state",
+    "crates/znx-mempool",
+    "crates/znx-consensus",
+    "crates/znx-p2p",
+    "crates/znx-rpc",
+    "crates/znx-node",
+    "crates/znx-wallet",
+    "crates/znx-wallet-cli",
+    "crates/znx-custody",
+    "crates/znx-testkit",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "UNLICENSED"
+publish = false
+
+[workspace.lints.clippy]
+all = { level = "deny", priority = -1 }

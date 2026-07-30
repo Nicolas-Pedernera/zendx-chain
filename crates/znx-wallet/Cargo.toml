@@ -1,0 +1,30 @@
+[package]
+name = "znx-wallet"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+argon2 = "0.5"
+chacha20poly1305 = "0.10"
+getrandom = { version = "0.4.3", features = ["sys_rng"] }
+hex = "0.4.3"
+jsonrpsee-core = { version = "0.26.0", features = ["client"] }
+# Sin la feature `tls` (default de jsonrpsee-http-client): quien use este
+# crate habla con un znx-node en localhost/red privada por http:// texto
+# plano — mismo motivo por el que znx-storage evita compilar codecs de
+# rocksdb sin usar (ver comentario en ese Cargo.toml).
+jsonrpsee-http-client = { version = "0.26.0", default-features = false }
+rand_core = "0.10.1"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
+thiserror = "2.0.19"
+znx-codec = { version = "0.1.0", path = "../znx-codec" }
+znx-crypto = { version = "0.1.0", path = "../znx-crypto" }
+znx-types = { version = "0.1.0", path = "../znx-types" }
+
+[dev-dependencies]
+tempfile = "3.27.0"

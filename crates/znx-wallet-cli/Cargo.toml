@@ -1,0 +1,20 @@
+[package]
+name = "znx-wallet-cli"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[[bin]]
+name = "znx-wallet-cli"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.6.3", features = ["derive"] }
+hex = "0.4.3"
+rpassword = "7"
+tokio = { version = "1.53.1", features = ["rt-multi-thread", "macros"] }
+znx-crypto = { version = "0.1.0", path = "../znx-crypto" }
+znx-wallet = { version = "0.1.0", path = "../znx-wallet" }

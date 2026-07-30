@@ -1,0 +1,17 @@
+[package]
+name = "znx-rpc"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+hex = "0.4.3"
+jsonrpsee = { version = "0.26.0", features = ["server"] }
+serde = { version = "1.0.229", features = ["derive"] }
+thiserror = "2.0.19"
+znx-codec = { version = "0.1.0", path = "../znx-codec" }
+znx-crypto = { version = "0.1.0", path = "../znx-crypto" }
+znx-types = { version = "0.1.0", path = "../znx-types" }

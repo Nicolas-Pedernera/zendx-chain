@@ -1,0 +1,24 @@
+# Configuración de `cargo-audit` (ver .github/workflows/blockchain-ci.yml,
+# job `security-audit`). Cargo.lock resuelve el grafo de dependencias
+# *posibles* de `libp2p` (todas las features que alguna vez podrían
+# activarse), no solo las que este workspace realmente compila — por
+# eso quedan fijadas versiones de subcrates de `libp2p` que acá nunca se
+# activan ni se linkean a ningún binario (verificado con
+# `cargo tree -i <crate>`, que sí respeta las features activas: no
+# aparecen). `cargo audit` audita el lockfile completo, no el grafo
+# realmente compilado, así que las señala igual — de ahí este ignore
+# explícito y documentado, no un silenciamiento ciego.
+
+[advisories]
+ignore = [
+    # hickory-proto (vía hickory-resolver <- libp2p-dns, y directo desde
+    # libp2p-mdns): znx-p2p fija `libp2p` con `default-features = false` y
+    # solo activa tcp/noise/yamux/gossipsub/request-response/macros/tokio
+    # (ver crates/znx-p2p/Cargo.toml) — sin "dns" ni "mdns", así que
+    # ninguna de las dos rutas que arrastran hickory-proto se compila.
+    # Revisar de nuevo si alguna vez se activa descubrimiento de peers
+    # vía mDNS o resolución de multiaddrs `/dnsN/...` (hoy la lista de
+    # bootnodes es siempre por IP, a propósito — ver ARCHITECTURE.md).
+    "RUSTSEC-2026-0118", # NSEC3 bucle infinito en validación cross-zone
+    "RUSTSEC-2026-0119", # exhaustion de CPU por compresión de nombres O(n²)
+]

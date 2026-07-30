@@ -1,0 +1,38 @@
+[package]
+name = "znx-node"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[lib]
+name = "znx_node"
+path = "src/lib.rs"
+
+[[bin]]
+name = "znx-node"
+path = "src/main.rs"
+
+[dependencies]
+chrono = { version = "0.4", default-features = false, features = ["std"] }
+clap = { version = "4.6.3", features = ["derive", "env"] }
+futures = "0.3"
+hex = "0.4.3"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
+thiserror = "2.0.19"
+tokio = { version = "1.53.1", features = ["rt-multi-thread", "macros", "time", "signal"] }
+znx-codec = { version = "0.1.0", path = "../znx-codec" }
+znx-consensus = { version = "0.1.0", path = "../znx-consensus" }
+znx-crypto = { version = "0.1.0", path = "../znx-crypto" }
+znx-mempool = { version = "0.1.0", path = "../znx-mempool" }
+znx-rpc = { version = "0.1.0", path = "../znx-rpc" }
+znx-state = { version = "0.1.0", path = "../znx-state" }
+znx-p2p = { version = "0.1.0", path = "../znx-p2p" }
+znx-storage = { version = "0.1.0", path = "../znx-storage" }
+znx-types = { version = "0.1.0", path = "../znx-types" }
+
+[dev-dependencies]
+tempfile = "3.27.0"

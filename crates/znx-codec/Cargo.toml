@@ -1,0 +1,17 @@
+[package]
+name = "znx-codec"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+borsh = { version = "1.8.0", features = ["derive"] }
+thiserror = "2.0.19"
+znx-crypto = { version = "0.1.0", path = "../znx-crypto" }
+znx-types = { version = "0.1.0", path = "../znx-types" }
+
+[dev-dependencies]
+ed25519-dalek = "3.0.0"
