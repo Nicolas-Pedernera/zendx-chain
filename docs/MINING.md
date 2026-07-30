@@ -42,9 +42,12 @@ docker run -d --name znx-node \
 ### Compilando desde el código fuente
 
 El código completo del devnet (crates de consenso, P2P, wallet) es
-público — podés revisarlo antes de correrlo en `<URL_DEL_REPO_ESPEJO>`.
+público — podés revisarlo antes de correrlo en
+https://github.com/Nicolas-Pedernera/zendx-chain.
 
 ```
+git clone https://github.com/Nicolas-Pedernera/zendx-chain.git
+cd zendx-chain
 cargo build --release -p znx-node -p znx-wallet-cli
 ./target/release/znx-node \
   --data-dir ./data \
