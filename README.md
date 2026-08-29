@@ -1,33 +1,24 @@
 # Zend X Chain — devnet
 
-Código fuente de la capa de consenso, red P2P y wallet de **Zend X
-Chain**, la blockchain propia (PoW abierta + UTXO) detrás de ZNX. Este repo
-es un espejo público de la carpeta `blockchain/` del monorepo interno de
-ZendX — sin nada del resto de la plataforma (que sí es privada).
+Source code for the consensus layer, P2P network, and wallet of **Zend X Chain**, the custom blockchain (open PoW + UTXO) behind ZNX. This repo is a public mirror of the `blockchain/` folder from ZendX's internal monorepo — nothing else from the rest of the platform is included (which remains private).
 
-**Esto es el devnet**: sin premine, sin fondos con valor real, dificultad
-pensada para poder minar con hardware normal. El objetivo es técnico y de
-comunidad — auditar el código de consenso y correr un nodo de verdad. El
-mainnet real (con sus propios parámetros, todavía en preparación) va a ser
-una red separada.
+**This is the devnet**: no premine, no funds with real value, difficulty tuned so it can be mined with regular hardware. The goal is technical and community-driven — auditing the consensus code and running a real node. The actual mainnet (with its own parameters, still in preparation) will be a separate network.
 
-- [`docs/MINING.md`](docs/MINING.md) — cómo correr tu propio nodo y minar.
-- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — diseño técnico (crates,
-  formato de transacción/bloque, storage).
-- [`docs/CONSENSUS.md`](docs/CONSENSUS.md) — reglas de consenso (PoW,
-  ajuste de dificultad, subsidio/halving).
+- [`docs/MINING.md`](docs/MINING.md) — how to run your own node and mine.
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — technical design (crates, transaction/block format, storage).
+- [`docs/CONSENSUS.md`](docs/CONSENSUS.md) — consensus rules (PoW, difficulty adjustment, subsidy/halving).
 
-## Estructura
+## Structure
 
-```
-crates/       - workspace de Rust (znx-node, znx-consensus, znx-p2p, znx-wallet, ...)
-genesis/      - archivo de génesis del devnet
-docs/         - documentación técnica
-Dockerfile    - imagen para correr un nodo sin compilar
+```text
+crates/       - Rust workspace (znx-node, znx-consensus, znx-p2p, znx-wallet, ...)
+genesis/      - devnet genesis file
+docs/         - technical documentation
+Dockerfile    - image to run a node without compiling
 ```
 
-## Build local
+## Local build
 
-```
+```bash
 cargo build --release -p znx-node -p znx-wallet-cli
 ```
